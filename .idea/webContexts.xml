@@ -3,7 +3,10 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+<<<<<<< HEAD
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/pageTemplate.tag" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags" />
+=======
+>>>>>>> c9ef2e5b4095b0183184d1634e7bca8c739ca380
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
