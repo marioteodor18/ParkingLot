@@ -32,14 +32,6 @@ public class CarsBean {
             throw new EJBException(ex);
         }
     }
-    public void deleteCarsByIds(Collection<Long> carIds) {
-        LOG.info("deleteCarsByIds");
-
-        for (Long carId : carIds) {
-            Car car = entityManager.find(Car.class, carId);
-            entityManager.remove(car);
-        }
-    }
     public void createCar(String licensePlate, String parkingSpot, Long userId) {
         LOG.info("createCar");
 
@@ -53,6 +45,7 @@ public class CarsBean {
 
         entityManager.persist(car);
     }
+
     public CarDto findById(Long carId) {
         LOG.info("findById");
         Car car = entityManager.find(Car.class, carId);
@@ -76,6 +69,15 @@ public class CarsBean {
         user.getCars().add(car);
         car.setOwner(user);
     }
+
+    public void deleteCarsByIds(Collection<Long> carIds) {
+        LOG.info("deleteCarsByIds");
+
+        for (Long carId : carIds) {
+            Car car = entityManager.find(Car.class, carId);
+            entityManager.remove(car);
+        }
+    }
     private List<CarDto> copyCarsToDto(List<Car> cars) {
         List<CarDto> carDtoList = new ArrayList<>();
         for (Car car : cars) {
@@ -85,7 +87,6 @@ public class CarsBean {
                     car.getParkingSpot(),
                     car.getOwner().getUsername()
             ));
-
         }
         return carDtoList;
     }
